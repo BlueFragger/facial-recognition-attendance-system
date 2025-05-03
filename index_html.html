@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Attendance System</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Smart Attendance System</h1>
+            <p>Powered by Facial Recognition Technology</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="#">Attendance Records</a></li>
+                <li><a href="#">Student Management</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="statistics">
+            <div class="stat-card">
+                <h3>Total Students</h3>
+                <p>35</p>
+            </div>
+            <div class="stat-card">
+                <h3>Present Today</h3>
+                <p>28</p>
+            </div>
+            <div class="stat-card">
+                <h3>Absent Today</h3>
+                <p>7</p>
+            </div>
+            <div class="stat-card">
+                <h3>Attendance Rate</h3>
+                <p>80%</p>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="camera-container">
+                <h2>Camera Feed</h2>
+                <p>Position students in front of the camera for automatic attendance marking</p>
+                <div class="camera-view">
+                    <video id="video-feed" class="video-feed" autoplay></video>
+                    <div id="face-box" class="face-overlay"></div>
+                </div>
+                <div class="controls">
+                    <button id="start-camera">Start Camera</button>
+                    <button id="capture-attendance">Mark Attendance</button>
+                </div>
+                <div id="recognition-status">
+                    <p>Camera status: <span id="status-text">Not started</span></p>
+                </div>
+            </div>
+            
+            <div class="attendance-data">
+                <h2>Today's Attendance</h2>
+                <p>Class: Computer Science 101 | Date: <span id="current-date"></span></p>
+                <table class="attendance-table">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendance-list">
+                        <tr>
+                            <td>S1001</td>
+                            <td>John Smith</td>
+                            <td>09:05 AM</td>
+                            <td class="status-present">Present</td>
+                        </tr>
+                        <tr>
+                            <td>S1002</td>
+                            <td>Emily Johnson</td>
+                            <td>09:08 AM</td>
+                            <td class="status-present">Present</td>
+                        </tr>
+                        <tr>
+                            <td>S1003</td>
+                            <td>Michael Brown</td>
+                            <td>--:--</td>
+                            <td class="status-absent">Absent</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="student-management">
+            <h2>Student Management</h2>
+            <div class="tab-buttons">
+                <button class="tab-button active" data-tab="add-student">Add New Student</button>
+                <button class="tab-button" data-tab="upload-images">Upload Face Images</button>
+                <button class="tab-button" data-tab="manage-database">Manage Database</button>
+            </div>
+            
+            <div class="tab-content active" id="add-student">
+                <h3>Add New Student</h3>
+                <form id="add-student-form">
+                    <input type="text" placeholder="Student ID" required>
+                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="Last Name" required>
+                    <select required>
+                        <option value="">Select Class</option>
+                        <option value="cs101">Computer Science 101</option>
+                        <option value="math202">Mathematics 202</option>
+                        <option value="phys301">Physics 301</option>
+                    </select>
+                    <button type="submit">Add Student</button>
+                </form>
+            </div>
+            
+            <div class="tab-content" id="upload-images">
+                <h3>Upload Face Images</h3>
+                <form id="upload-images-form">
+                    <input type="text" placeholder="Student ID" required>
+                    <input type="file" accept="image/*" multiple required>
+                    <button type="submit">Upload Images</button>
+                </form>
+            </div>
+            
+            <div class="tab-content" id="manage-database">
+                <h3>Manage Student Database</h3>
+                <table class="attendance-table">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Images</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>S1001</td>
+                            <td>John Smith</td>
+                            <td>Computer Science 101</td>
+                            <td>5 images</td>
+                            <td>
+                                <button>Edit</button>
+                                <button>Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>S1002</td>
+                            <td>Emily Johnson</td>
+                            <td>Computer Science 101</td>
+                            <td>4 images</td>
+                            <td>
+                                <button>Edit</button>
+                                <button>Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification">
+        Student marked present successfully!
+    </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Smart Attendance System | Powered by OpenCV and TensorFlow</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
