@@ -108,8 +108,8 @@
             <h2>Student Management</h2>
             <div class="tab-buttons">
                 <button class="tab-button active" data-tab="add-student">Add New Student</button>
-                <button class=".tab-button" data-tab="upload-images">Upload Face Images</button>
-                <button class=".tab-button" data-tab="manage-database">Manage Database</button>
+                <button class="tab-button" data-tab="upload-images">Upload Face Images</button>
+                <button class="tab-button" data-tab="manage-database">Manage Database</button>
             </div>
             
             <div class="tab-content active" id="add-student">
@@ -185,12 +185,8 @@
             <p>&copy; 2025 Smart Attendance System | Powered by OpenCV and TensorFlow</p>
         </div>
     </footer>
-    <script type="module">
-        // Import the facial recognition module
-        import { initFaceRecognition, startCamera, processVideoFrame, markAttendance, stopCamera, cleanUp } from './assets/js/face-recognition.js';
-        
-        // The rest of your JavaScript will be loaded from main.js which we've updated
-    </script>
+
+    <!-- Fixed issue with duplicate imports and path inconsistency -->
     <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>

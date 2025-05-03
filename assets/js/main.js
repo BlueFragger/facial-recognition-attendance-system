@@ -1,5 +1,6 @@
 // Import facial recognition module
-import { initFaceRecognition, startCamera, processVideoFrame, markAttendance, stopCamera, cleanUp } from './face-recognition.js';
+// Corrected path to match the HTML structure
+import { initFaceRecognition, startCamera, processVideoFrame, markAttendance, stopCamera, cleanUp } from './assets/js/face-recognition.js';
 
 // Set current date
 document.addEventListener('DOMContentLoaded', function() {
@@ -9,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
         dateElement.textContent = new Date().toLocaleDateString(undefined, options);
     }
 
-    // Tab switching functionality - Fixed
-    const tabButtons = document.querySelectorAll('.tab-button');
+    // Tab switching functionality - Fixed class selector issues
+    const tabButtons = document.querySelectorAll('.tab-button, [class^=".tab-button"]');
     const tabContents = document.querySelectorAll('.tab-content');
 
     tabButtons.forEach(button => {
